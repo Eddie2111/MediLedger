@@ -1,0 +1,35 @@
+{
+  "name": "system",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@chakra-ui/react": "^2.4.9",
+    "@emotion/react": "^11.10.5",
+    "@emotion/styled": "^11.10.5",
+    "@zeit/next-css": "^1.0.1",
+    "axios": "^1.2.2",
+    "bootstrap": "^5.2.3",
+    "framer-motion": "^8.5.0",
+    "next": "13.1.2",
+    "next-auth": "^4.18.8",
+    "next-compose-plugins": "^2.2.1",
+    "pg": "^8.8.0",
+    "prisma": "^4.9.0",
+    "react": "18.2.0",
+    "react-bootstrap": "^2.7.0",
+    "react-dom": "18.2.0",
+    "react-icons": "^4.7.1",
+    "sequelize": "^6.28.0",
+    "styled-components": "^5.3.6"
+  },
+  "devDependencies": {
+    "eslint": "8.32.0",
+    "eslint-config-next": "13.1.2"
+  }
+}
