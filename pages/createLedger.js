@@ -1,14 +1,12 @@
 import React from 'react';
-
-import { ComponentsDashboard } from './components/componentsDashboard';
+import { ComponentsCreateLedger } from './components/componentsCreateLedger';
 import { 
-    Box,useColorModeValue,Link as StyledLink,
-    Drawer,DrawerContent,useDisclosure
+    Box, useColorModeValue,Link as StyledLink,
+    Drawer,DrawerContent, useDisclosure
 } from '@chakra-ui/react';
 import { SidebarContent, NavItem, MobileNav } from './components/styledDashboard';
 
-
-export default function Dashboard({children}) {
+export default function CreateLedger({children}) {
   const { isOpen, onOpen, onClose } = useDisclosure();
   return (
     <Box minH="100vh" bg={useColorModeValue('gray.100', 'gray.900')}>
@@ -23,14 +21,9 @@ export default function Dashboard({children}) {
 
       <Box ml={{ base: 0, md: 60 }} p="4">
       {/* Components are Here */}
-        <ComponentsDashboard />
+        <ComponentsCreateLedger />
 
       </Box>
     </Box>
   );
 }
-
-
-
-
-

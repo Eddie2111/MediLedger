@@ -20,11 +20,11 @@ enum UsersType {
 model Employee {
     id        Int      @id @default(autoincrement())
     nid       String   @db.VarChar(64) @unique
+    email     String   @db.VarChar(35) @unique
     createdAt DateTime @default(now())
     updatedAt DateTime @updatedAt
     name      String   @db.VarChar(255)
     phoneNo   String   @db.VarChar(64) @unique //@default(false)
-    userType  UsersType
     // author    User     @relation(fields: [authorId], references: [id])
     // authorId  Int
 }

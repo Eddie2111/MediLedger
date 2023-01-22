@@ -1,107 +1,80 @@
 import React from 'react';
+import Router from 'next/router';
 import {
     Button,ButtonGroup,Card,CardBody,CardFooter,
-    Divider,GridItem,Heading,Image,SimpleGrid,
+    Divider,GridItem,Heading,SimpleGrid,
     Stack,Text,
 } from '@chakra-ui/react';
+
 export const ComponentsDashboard = () => {
+    const dataCards = [
+        { title: "" , description: "", link: ""}
+    ]
+    const routing = (link) => {
+        return () => {
+            Router.push(link);
+        }}
+
     return (
         <>
-        <SimpleGrid columns={[2, null, 3]} spacing="2">
+        <SimpleGrid columns={[1, null, 3]} spacing="2">
             <GridItem >
-                <Card maxW='sm'>
+                <Card maxW='sm' background="blue.200">
                 <CardBody>
-                    <Image
-                    src='https://images.unsplash.com/photo-1555041469-a586c61ea9bc?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80'
-                    alt='Green double couch with wooden legs'
-                    borderRadius='lg'
-                    />
                     <Stack mt='6' spacing='3'>
-                    <Heading size='md'>Living room Sofa</Heading>
+                    <Heading size='md'>Create Ledger</Heading>
                     <Text>
-                        This sofa is perfect for modern tropical spaces, baroque inspired
-                        spaces, earthy toned spaces and for people who love a chic design with a
-                        sprinkle of vintage design.
+                        Create a new ledger for a single shipment
                     </Text>
-                    <Text color='blue.600' fontSize='2xl'>
-                        $450
+
+                    </Stack>
+                </CardBody>
+                <Divider />
+                <CardFooter>
+                    <ButtonGroup spacing='2'>
+                    <Button variant='solid' colorScheme='blue' color="white" onClick={routing("/createLedger")}>
+                        Create Now
+                    </Button>
+                    </ButtonGroup>
+                </CardFooter>
+                </Card>
+            </GridItem>
+
+            <GridItem >
+                <Card maxW='sm' background="blue.200">
+                <CardBody>
+                    <Stack mt='6' spacing='3'>
+                    <Heading size='md'>Your Ledgers</Heading>
+                    <Text>
+                        Track your currently created ledgers
                     </Text>
                     </Stack>
                 </CardBody>
                 <Divider />
                 <CardFooter>
                     <ButtonGroup spacing='2'>
-                    <Button variant='solid' colorScheme='blue'>
-                        Buy now
-                    </Button>
-                    <Button variant='ghost' colorScheme='blue'>
-                        Add to cart
+                    <Button variant='solid' colorScheme='blue' onClick={routing("/trackLedger")}>
+                        Track Ledgers
                     </Button>
                     </ButtonGroup>
                 </CardFooter>
                 </Card>
             </GridItem>
             <GridItem >
-                <Card maxW='sm'>
-                <CardBody>
-                    <Image
-                    src='https://images.unsplash.com/photo-1555041469-a586c61ea9bc?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80'
-                    alt='Green double couch with wooden legs'
-                    borderRadius='lg'
-                    />
-                    <Stack mt='6' spacing='3'>
-                    <Heading size='md'>Living room Sofa</Heading>
-                    <Text>
-                        This sofa is perfect for modern tropical spaces, baroque inspired
-                        spaces, earthy toned spaces and for people who love a chic design with a
-                        sprinkle of vintage design.
-                    </Text>
-                    <Text color='blue.600' fontSize='2xl'>
-                        $450
-                    </Text>
-                    </Stack>
-                </CardBody>
-                <Divider />
-                <CardFooter>
-                    <ButtonGroup spacing='2'>
-                    <Button variant='solid' colorScheme='blue'>
-                        Buy now
-                    </Button>
-                    <Button variant='ghost' colorScheme='blue'>
-                        Add to cart
-                    </Button>
-                    </ButtonGroup>
-                </CardFooter>
-                </Card>
-            </GridItem>
-            <GridItem >
-                <Card maxW='sm'>
+                <Card maxW='sm' background="blue.200">
             <CardBody>
-                <Image
-                src='https://images.unsplash.com/photo-1555041469-a586c61ea9bc?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80'
-                alt='Green double couch with wooden legs'
-                borderRadius='lg'
-                />
                 <Stack mt='6' spacing='3'>
-                <Heading size='md'>Living room Sofa</Heading>
+                <Heading size='md'>Your Profile</Heading>
                 <Text>
-                    This sofa is perfect for modern tropical spaces, baroque inspired
-                    spaces, earthy toned spaces and for people who love a chic design with a
-                    sprinkle of vintage design.
-                </Text>
-                <Text color='blue.600' fontSize='2xl'>
-                    $450
+                    Modify your profile
                 </Text>
                 </Stack>
             </CardBody>
             <Divider />
             <CardFooter>
                 <ButtonGroup spacing='2'>
-                <Button variant='solid' colorScheme='blue'>
-                    Buy now
-                </Button>
-                <Button variant='ghost' colorScheme='blue'>
-                    Add to cart
+                <Button variant='solid' colorScheme='blue' onClick={routing("/profileSetting")}>
+                    Settings
                 </Button>
                 </ButtonGroup>
             </CardFooter>
