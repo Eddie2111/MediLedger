@@ -1,7 +1,7 @@
 .container {
   padding: 0 2rem;
-  height:120vh;
-  background-color: rgb(0, 0, 0);
+  background: rgb(0, 0, 0);
+  height: 130vh;
   color:white;
 }
 .Formcontainer {
@@ -51,7 +51,7 @@
 }
 .form{
     background-color: transparent;
-    height:75vh;
+    
     margin-top: -20px;
     display: flex;
     flex-direction: column;

@@ -15,6 +15,7 @@ const CreateNewUser = async(data)=>{
     else{
         await prisma.Users.create({
             data: {
+            id: data.id,
             name: data.name,
             email: data.email,
             password: data.password,
