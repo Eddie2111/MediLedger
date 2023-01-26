@@ -13,13 +13,15 @@ export default function Home() {
     const HandleSubmit = async(e) => {
         e.preventDefault();
         const cred = {email:e.target.email.value,password:e.target.password.value};
-        await axios.post("/api/auth/login",cred)
-            .then((data)=>{
-                //router.push('/dashboard');
-                console.log(data);
-                console.log("render dot com");
-            })
-            .catch((error)=>{console.log(error)})
+        await axios.post("/api/login",cred)
+        .then((data)=>{
+            console.log(data)
+            if(data.data.message === "User Found"){
+            router.push('/dashboard');
+            }
+            else{console.log("error")}
+        })
+        .catch((error)=>{console.log(error.message)})
     }
 
   return (
@@ -30,7 +32,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <Heading as='h3' size='lg'>MediLedger v0.0.1</Heading>
+      <img src='/logo.png' alt="logo" height={"260px"} width={"260px"} style={{margin:"auto",marginBottom:"-80px"}}/>
       <br/><br/><br/>
       <div className={styles.Formcontainer}>
         <h1 style={{margin:"auto",textAlign:"center"}}> Login </h1>

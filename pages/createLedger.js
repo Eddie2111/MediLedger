@@ -1,6 +1,6 @@
 import React,{useEffect,useState} from 'react';
 import axios from 'axios';
-import { ComponentsDashboard } from './components/componentsDashboard';
+import { ComponentsCreateLedger } from './components/componentsCreateLedger';
 import { 
     Box,useColorModeValue,Link as StyledLink,
     Drawer,DrawerContent,useDisclosure
@@ -41,7 +41,7 @@ export default function Dashboard({children}) {
 
       <Box ml={{ base: 0, md: 60 }} p="4">
       {/* Components are Here */}
-        <ComponentsDashboard />
+        <ComponentsCreateLedger/>
 
       </Box>
     </Box>

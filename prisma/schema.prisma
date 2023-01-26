@@ -18,23 +18,25 @@ enum UsersType {
   CUSTOMER
 }
 model Employee {
-    id        Int      @id @default(autoincrement())
+    id        String   @db.VarChar(38) @unique
     nid       String   @db.VarChar(64) @unique
-    createdAt DateTime @default(now())
-    updatedAt DateTime @updatedAt
+    email     String   @db.VarChar(35) @unique
+    createdAt String   @db.VarChar(21)
+    updatedAt String   @db.VarChar(21)
     name      String   @db.VarChar(255)
     phoneNo   String   @db.VarChar(64) @unique //@default(false)
-    userType  UsersType
     // author    User     @relation(fields: [authorId], references: [id])
     // authorId  Int
 }
 
 model Users {
-  id        Int      @id
+  id        String   @db.VarChar(38) @unique
   nid       String   @db.VarChar(64) @unique
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+  createdAt String   @db.VarChar(21)
+  updatedAt String   @db.VarChar(21)
   name      String   @db.VarChar(255)
+  email     String   @db.VarChar(35) @unique
+  password  String   @db.VarChar(255)
   licenseNo String   @db.VarChar(64) @unique
   phoneNo   String   @db.VarChar(64) //@default(false)
   userType  UsersType
@@ -43,13 +45,10 @@ model Users {
   
 }
 model Chains{
-    id        Int      @id
+    id        String   @db.VarChar(255) @unique
     name      String   @db.VarChar(255)
-    serialNo  String   @db.VarChar(255)
-    hash      String   @db.VarChar(255)
-    checkedBy String[] @db.VarChar(255)
-    createdAt DateTime @default(now())
-    updatedAt DateTime @updatedAt
+    serialNo  String   @db.VarChar(255) @unique
+    hash      String   @db.VarChar(2048)
     // author    User     @relation(fields: [authorId], references: [id])
     // authorId  Int
 }

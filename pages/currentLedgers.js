@@ -1,6 +1,6 @@
 import React,{useEffect,useState} from 'react';
 import axios from 'axios';
-import { ComponentsDashboard } from './components/componentsDashboard';
+import ComponentsCurrentLedgers from './components/componentsCurrentLedgers';
 import { 
     Box,useColorModeValue,Link as StyledLink,
     Drawer,DrawerContent,useDisclosure
@@ -9,7 +9,7 @@ import { SidebarContent, NavItem, MobileNav } from './components/styledDashboard
 import { useRouter } from 'next/router';
 
 
-export default function Dashboard({children}) {
+export default function CurrentLedgers({children}) {
     const { isOpen, onOpen, onClose } = useDisclosure();
     const router = useRouter();
     const [user, setUser] = useState(null);
@@ -41,7 +41,7 @@ export default function Dashboard({children}) {
 
       <Box ml={{ base: 0, md: 60 }} p="4">
       {/* Components are Here */}
-        <ComponentsDashboard />
+        <ComponentsCurrentLedgers/>
 
       </Box>
     </Box>
