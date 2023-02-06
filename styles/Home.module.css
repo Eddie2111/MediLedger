@@ -1,3 +1,36 @@
+.modal{
+    position: absolute;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    padding-top:35px;
+    margin-left: 38%;
+    color: black;
+    width:300px;
+    height:100px;
+    border-radius: 10px;
+    background-color: #dcddde;
+}
+.modal::before{
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #dcddde transparent transparent transparent;
+}
+.modal::after{
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #dcddde transparent transparent transparent;
+}
 .container {
   padding: 0 2rem;
   background: rgb(0, 0, 0);
@@ -15,8 +48,6 @@
   margin:auto;
   padding:15px;
 }
-
-
 .main {
   min-height: 100vh;
   padding: 4rem 0;
@@ -33,6 +64,8 @@
   margin-left:42vw;
   margin-right: 42vw;
   bottom:0;
+  height:30vh;
+  background-color: rgb(0, 0, 0);
   padding: 2rem 0;
   border-top: 1px solid #eaeaea;
   justify-content: center;
@@ -182,11 +215,28 @@
   margin-left: 0.5rem;
 }
 
+
+@media (max-width: 800px) {
+    .modal{
+      position: absolute;
+      justify-content: center;
+      text-align: center;
+      align-items: center;
+      margin-left: 26%;
+  }
+  }
 @media (max-width: 600px) {
   .grid {
     width: 100%;
     flex-direction: column;
   }
+  .modal{
+    position: absolute;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    margin-left: 16%;
+}
 }
 
 @media (prefers-color-scheme: dark) {

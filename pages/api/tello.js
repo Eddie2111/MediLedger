@@ -19,8 +19,8 @@ export default function handler(req, res) {
       
       try{
         CreateNewUser(data)
-        .then((data)=>{res.json({message:"User Created"});console.log(data)})
-        .catch((error)=>{res.json({error});console.log("error")})
+        .then((data)=>{res.json({stats:200,message:"User Created"});console.log(data)})
+        .catch((error)=>{res.json({stats:200,error});console.log("error")})
       }
         catch(error){
             console.log(error)

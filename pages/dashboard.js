@@ -7,6 +7,7 @@ import {
 } from '@chakra-ui/react';
 import { SidebarContent, NavItem, MobileNav } from './components/styledDashboard';
 import { useRouter } from 'next/router';
+import { Loader } from './components/loader';
 
 
 export default function Dashboard({children}) {
@@ -25,7 +26,7 @@ export default function Dashboard({children}) {
     },[])
     if(!user){
         
-        return <div>Loading...</div>
+        return <Loader/>
     }
     if(user){
   return (

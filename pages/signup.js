@@ -23,8 +23,11 @@ export default function Signup() {
         
         await axios.post("/api/tello",data)
             .then((data)=>{
-                //router.push('/');
-                console.log(data);
+                if(data.stats === 200){
+                    router.push('/');
+                    console.log(data);
+                    }
+                
             })
             .catch((error)=>{console.log(error.message)})
             
@@ -38,6 +41,7 @@ export default function Signup() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <br/>
+      
       <Heading as='h3' size='lg'>MediLedger v0.0.1</Heading>
       <br/><br/>
       <div className={styles.Formcontainer}>

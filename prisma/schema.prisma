@@ -49,6 +49,7 @@ model Chains{
     name      String   @db.VarChar(255)
     serialNo  String   @db.VarChar(255) @unique
     hash      String   @db.VarChar(2048)
+    creatorEmail String  @db.VarChar(35)
     // author    User     @relation(fields: [authorId], references: [id])
     // authorId  Int
 }

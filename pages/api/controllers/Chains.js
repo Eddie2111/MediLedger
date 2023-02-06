@@ -6,6 +6,7 @@ const CreateLedger = async (data)=>{
         data: {
             id: data.id,
             name: data.name,
+            creatorEmail: data.email,
             serialNo: data.serialNo,
             hash: data.hash,
         },
@@ -29,7 +30,7 @@ const FindOneLedger = async (data)=>{
     })
     return ledger;
 }
-const findSelectiveAll = async (data)=>{
+const FindSelectiveAll = async (data)=>{
     const ledger = await prisma.Chains.findMany({
         where: {
             email: data.email,
@@ -37,4 +38,4 @@ const findSelectiveAll = async (data)=>{
     })
     return ledger;
 }
-module.exports = { CreateLedger, UpdateLedger, FindOneLedger }
+module.exports = { CreateLedger, UpdateLedger, FindOneLedger, FindSelectiveAll }

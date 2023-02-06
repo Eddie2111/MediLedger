@@ -7,6 +7,7 @@ import {
 } from '@chakra-ui/react';
 import { SidebarContent, NavItem, MobileNav } from './components/styledDashboard';
 import { useRouter } from 'next/router';
+import { Loader } from './components/loader';
 
 
 export default function CurrentLedgers({children}) {
@@ -21,11 +22,19 @@ export default function CurrentLedgers({children}) {
                 router.push(res.data.route);
             }
         }
-        fetchUser();
+        const fetchLedgers = async () => {
+            const res = await axios.get('/api/ledger');
+            setUser(res.data);
+            console.log(res.data);
+            
+        }
+
+        //fetchUser();
+        fetchLedgers();
     },[])
     if(!user){
         
-        return <div>Loading...</div>
+        return <Loader/>
     }
     if(user){
   return (

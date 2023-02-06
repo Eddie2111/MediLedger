@@ -1,6 +1,6 @@
 const crypto = require('crypto');
 const jwt = require('jsonwebtoken');
-const { CreateLedger } = require('./controllers/Chains');
+const { CreateLedger, FindSelectiveAll } = require('./controllers/Chains');
 const dateNow = ()=>{
     const data = new Date().toJSON().slice(0, 10) + " "
 				+ new Date().toJSON().slice(11, 20);
@@ -8,17 +8,27 @@ const dateNow = ()=>{
 }
 export default function handler(req, res) {
     if (req.method === "GET"){
-        console.log(req.body);
+        const { email } = jwt.verify(req.cookies.token,process.env.JWT_SECRET);
+        console.log(email);
+        try{
+            FindSelectiveAll({email:email})
+            .then((data)=>{console.log(data)})
+            .catch((err)=>{console.log(err)})
+        }
+        catch(err){
+            console.log(err)
+        }
         res.status(200).json({ name: 'John Doe' })
     }
     if(req.method==="POST"){
       const data = req.body;
+      const {email} = jwt.verify(req.cookies.token,process.env.JWT_SECRET);
       console.log(req.body);
       const token = jwt.sign({
         id:crypto.randomUUID(),
-        email:data.email,
+        email:email,
         valid: true,
-        createdBy: data.email,
+        createdBy: email,
         signs: ["MANUFACTURER",],
         creationDate:dateNow(),
         updatingDate:dateNow(),
@@ -26,6 +36,8 @@ export default function handler(req, res) {
       const dataSet  = {
         id: crypto.randomBytes(16).toString("hex"),
         name: data.name,
+        email: email,
+        creatorEmail: data.email,
         serialNo: data.serialNo,
         hash: token,
       }
