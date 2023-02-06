@@ -3,7 +3,6 @@ import { useRouter } from 'next/router'
 import axios from 'axios';
 import Head from 'next/head'
 import Image from 'next/image'
-import { Heading, Divider } from '@chakra-ui/react'
 import styles from '../styles/Home.module.css'
 import Link from 'next/link';
 
@@ -56,7 +55,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div style={modalStyle}> &nbsp;{message}&nbsp; </div>
-      <img src='/logo.png' alt="logo" height={"260px"} width={"260px"} style={{margin:"auto",marginBottom:"-80px"}}/>
+      <Image src='/logo.png' alt="logo" height={"260px"} width={"260px"} style={{margin:"auto",marginBottom:"-80px"}}/>
       <br/><br/><br/>
       <div className={styles.Formcontainer}>
         <h1 style={{margin:"auto",textAlign:"center"}}> Login </h1>

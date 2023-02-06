@@ -1,13 +1,13 @@
 import React,{useEffect,useState} from 'react';
 import axios from 'axios';
-import { ComponentsCreateLedger } from './components/componentsCreateLedger';
+import ComponentsCreateLedger from './components/ComponentsCreateLedger';
 import { 
     Box,useColorModeValue as modValue,Link as StyledLink,
     Drawer,DrawerContent,useDisclosure
 } from '@chakra-ui/react';
 import { SidebarContent, NavItem, MobileNav } from './components/styledDashboard';
 import { useRouter } from 'next/router';
-import { Loader } from './components/loader';
+import Loader from './components/Loader';
 
 
 export default function Dashboard({children}) {

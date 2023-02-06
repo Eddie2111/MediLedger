@@ -7,7 +7,7 @@ import {
 } from '@chakra-ui/react';
 import { SidebarContent, NavItem, MobileNav } from './components/styledDashboard';
 import { useRouter } from 'next/router';
-import { Loader } from './components/loader';
+import Loader from './components/Loader';
 
 
 export default function CurrentLedgers({children}) {

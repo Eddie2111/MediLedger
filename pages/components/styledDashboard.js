@@ -9,14 +9,13 @@ import {
 import {
     IconButton,
     Avatar,  Box,CloseButton,Flex,HStack,VStack,
-    Icon,useColorModeValue as modValue,Link as StyledLink,Drawer,DrawerContent,Text,
-    useDisclosure,Menu,MenuButton,
+    Icon,useColorModeValue as modValue,
+    Link as StyledLink,Text,Menu,MenuButton,
     MenuDivider,MenuItem,MenuList
   } from '@chakra-ui/react';
 import axios from "axios";
 import { useRouter } from 'next/router'
 import { useEffect, useState } from "react";
-
 
 export const SidebarContent = ({ onClose, ...rest }) => {
     const [role,setRole] = useState("");
@@ -165,7 +164,6 @@ export const MobileNav = ({ onOpen, ...rest }) => {
       </Flex>
     );
   };
-
 export const StyledDashboard = styled.div`
     display: flex;
     margin-left:20vw;
@@ -199,3 +197,6 @@ export const StyledDashboard = styled.div`
         margin-left: 0.5rem;
     }
     `;
+export default function Dashboard() {
+    return (<></>)
+}
