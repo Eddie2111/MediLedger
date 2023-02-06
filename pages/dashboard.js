@@ -2,7 +2,7 @@ import React,{useEffect,useState} from 'react';
 import axios from 'axios';
 import { ComponentsDashboard } from './components/componentsDashboard';
 import { 
-    Box,useColorModeValue,Link as StyledLink,
+    Box,useColorModeValue as modValue,Link as StyledLink,
     Drawer,DrawerContent,useDisclosure
 } from '@chakra-ui/react';
 import { SidebarContent, NavItem, MobileNav } from './components/styledDashboard';
@@ -30,7 +30,7 @@ export default function Dashboard({children}) {
     }
     if(user){
   return (
-    <Box minH="100vh" bg={useColorModeValue('gray.100', 'gray.900')}>
+    <Box minH="100vh" bg={modValue('gray.100', 'gray.900')}>
       <SidebarContent onClose={() => onClose} display={{ base: 'none', md: 'block' }} />
       <Drawer autoFocus={false} isOpen={isOpen} placement="left" onClose={onClose} returnFocusOnClose={false} onOverlayClick={onClose} size="full">
         <DrawerContent>

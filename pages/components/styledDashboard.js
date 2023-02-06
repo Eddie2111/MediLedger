@@ -1,3 +1,4 @@
+import Link from "next/link";
 import styled from "styled-components";
 import {
     FiHome,FiTrendingUp,FiCompass,FiStar,
@@ -8,7 +9,7 @@ import {
 import {
     IconButton,
     Avatar,  Box,CloseButton,Flex,HStack,VStack,
-    Icon,useColorModeValue,Link as StyledLink,Drawer,DrawerContent,Text,
+    Icon,useColorModeValue as modValue,Link as StyledLink,Drawer,DrawerContent,Text,
     useDisclosure,Menu,MenuButton,
     MenuDivider,MenuItem,MenuList
   } from '@chakra-ui/react';
@@ -54,10 +55,10 @@ export const SidebarContent = ({ onClose, ...rest }) => {
     return (
       <Box
         transition="3s ease"
-        bg={useColorModeValue('#1c1c1c', 'gray.100')} // sidebar colors are here
+        bg={modValue('#1c1c1c', 'gray.100')} // sidebar colors are here
         borderRight="1px"
-        color={useColorModeValue('white', 'white')}
-        borderRightColor={useColorModeValue('gray.200', 'gray.700')}
+        color={modValue('white', 'white')}
+        borderRightColor={modValue('gray.200', 'gray.700')}
         w={{ base: 'full', md: 60 }}
         pos="fixed"
         h="full"
@@ -69,11 +70,11 @@ export const SidebarContent = ({ onClose, ...rest }) => {
           <CloseButton display={{ base: 'flex', md: 'none' }} onClick={onClose} />
         </Flex>
 
-        {notPrimary ? LinkItems.map((link) => (
-          <NavItem links={link.link} icon={link.icon}>{link.name}</NavItem>
+        {notPrimary ? LinkItems.map((link, index) => (
+          <NavItem key={index} links={link.link} icon={link.icon}>{link.name}</NavItem>
         )) :
-	LinkItems1.map((link) => (
-          <NavItem links={link.link} icon={link.icon}>{link.name}</NavItem>
+	LinkItems1.map((link, index) => (
+          <NavItem key={index} links={link.link} icon={link.icon}>{link.name}</NavItem>
         ))
 }
       </Box>
@@ -105,8 +106,8 @@ export const MobileNav = ({ onOpen, ...rest }) => {
         })
     })    
     return (
-      <Flex ml={{ base: 0, md: 60 }} px={{ base: 4, md: 4 }} height="20" alignItems="center" bg={useColorModeValue('white', 'gray.900')}
-        borderBottomWidth="1px" borderBottomColor={useColorModeValue('gray.200', 'gray.700')} justifyContent={{ base: 'space-between', md: 'flex-end' }} {...rest}>
+      <Flex ml={{ base: 0, md: 60 }} px={{ base: 4, md: 4 }} height="20" alignItems="center" bg={modValue('white', 'gray.900')}
+        borderBottomWidth="1px" borderBottomColor={modValue('gray.200', 'gray.700')} justifyContent={{ base: 'space-between', md: 'flex-end' }} {...rest}>
         <IconButton display={{ base: 'flex', md: 'none' }} onClick={onOpen} variant="outline" aria-label="open menu" icon={<FiMenu />} />
         <Text
           display={{ base: 'flex', md: 'none' }}
@@ -150,13 +151,13 @@ export const MobileNav = ({ onOpen, ...rest }) => {
                 </HStack>
               </MenuButton>
               <MenuList
-                bg={useColorModeValue('white', 'gray.900')}
-                borderColor={useColorModeValue('gray.200', 'gray.700')}>
+                bg={modValue('white', 'gray.900')}
+                borderColor={modValue('gray.200', 'gray.700')}>
                 <MenuItem>Profile</MenuItem>
                 <MenuItem>Settings</MenuItem>
                 <MenuItem>Billing</MenuItem>
                 <MenuDivider />
-                <MenuItem> <a href="/logout">Sign out</a></MenuItem>
+                <MenuItem> <Link href="/logout">Sign out</Link></MenuItem>
               </MenuList>
             </Menu>
           </Flex>
